@@ -25,5 +25,13 @@ class MainActivity : AppCompatActivity() {
 //            4. 실제 화면 이동
             startActivity(myIntent)
         }
+
+        btnCall.setOnClickListener {
+
+            val inputPhoneNum = edtPhoneNum.text.toString()
+            val myUri = Uri.parse("tel:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_CALL, myUri)
+            startActivity(myIntent)
+        }
     }
 }
