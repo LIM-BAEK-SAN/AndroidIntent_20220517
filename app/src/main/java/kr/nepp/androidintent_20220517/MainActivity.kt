@@ -33,5 +33,17 @@ class MainActivity : AppCompatActivity() {
             val myIntent = Intent(Intent.ACTION_CALL, myUri)
             startActivity(myIntent)
         }
+
+        btnSms.setOnClickListener {
+
+            val inputPhoneNum = edtPhoneNum.text.toString()
+            val myUri = Uri.parse("smsto:${inputPhoneNum}")
+            val myIntent = Intent(Intent.ACTION_SENDTO, myUri)
+
+//            문자 앱 화면에 데이터 첨부
+            myIntent.putExtra("sms_body", "미리메시지를 적어봅니다.")
+
+            startActivity(myIntent)
+        }
     }
 }
